@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import { connectDB } from "./configs/db.js";
 import authRoute from "./routes/auth.routes.js";
+import userRouter from "./routes/user.routes.js";
 
 const app = express()
 
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use("/api/auth", authRoute)
+app.use("/api/user", userRouter)
 
 
 // error handling middleware
