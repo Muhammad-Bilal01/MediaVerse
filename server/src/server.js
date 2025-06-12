@@ -4,6 +4,7 @@ import { connectDB } from "./configs/db.js";
 import authRoute from "./routes/auth.routes.js";
 import userRouter from "./routes/user.routes.js";
 import adminRouter from "./routes/admin.routes.js";
+import postRouter from "./routes/post.routes.js";
 
 const app = express()
 
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
 app.use("/api/auth", authRoute)
 app.use("/api/users", userRouter)
 app.use("/api/admin", adminRouter)
+app.use("/api/posts", postRouter)
 
 
 // error handling middleware
@@ -41,7 +43,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).json({ error: err.message })
 })
 
-const PORT = process.env || 4000
+const PORT = process.env.PORT || 4000
 
 app.listen(PORT, () => {
     console.log('Server running on port', PORT);
