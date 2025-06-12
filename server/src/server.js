@@ -5,6 +5,7 @@ import authRoute from "./routes/auth.routes.js";
 import userRouter from "./routes/user.routes.js";
 import adminRouter from "./routes/admin.routes.js";
 import postRouter from "./routes/post.routes.js";
+import commentRouter from "./routes/comment.routes.js";
 
 const app = express()
 
@@ -33,6 +34,7 @@ app.use("/api/auth", authRoute)
 app.use("/api/users", userRouter)
 app.use("/api/admin", adminRouter)
 app.use("/api/posts", postRouter)
+app.use("/api/comments", commentRouter)
 
 
 // error handling middleware
